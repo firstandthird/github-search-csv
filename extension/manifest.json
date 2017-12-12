@@ -1,6 +1,6 @@
 {
   "name": "GitHub Search to CSV",
-  "description": "Allows you to download a Github search page results to CSV file",
+  "description": "Chrome extension to export GitHub code search results to .csv",
   "manifest_version": 2,
   "version": "1.0.0",
   "icons": {

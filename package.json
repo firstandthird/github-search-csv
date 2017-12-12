@@ -2,7 +2,7 @@
   "name": "github-search-csv",
   "version": "1.0.0",
   "private": true,
-  "description": "Allows you to download a Github search page results to CSV file",
+  "description": "Chrome extension to export GitHub code search results to .csv",
   "main": "extension/inject/inject.js",
   "repository": {
     "type": "git",
