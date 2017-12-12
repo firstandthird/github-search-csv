@@ -1,0 +1,14 @@
+{
+  "downloadBtn": {
+    "message": "Descargar CSV",
+    "description": "botón de descarga"
+  },
+  "noResults": {
+    "message": "No hay resultados para exportar",
+    "description": "búsqueda sin resultados"
+  },
+  "saveConfig": {
+    "message": "Guardar",
+    "description": "guardar configuración"
+  }
+}

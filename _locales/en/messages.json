@@ -1,0 +1,14 @@
+{
+  "downloadBtn": {
+    "message":"Download CSV"
+    ,"description":"download button"
+  },
+  "noResults": {
+    "message": "No results to export",
+    "description": "no search results alert"
+  },
+  "saveConfig": {
+    "message": "Save",
+    "description": "save config button"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "GitHub Search to CSV",
+  "description": "Allows you to download a Github search page results to CSV file",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "author": "First+Third<>",
+  "default_title": "GitHub Search to CSV",
+  "default_locale": "en",
+  "permissions": [
+    "storage",
+    "contentSettings",
+    "http://github.com/search?*type=Code*",
+    "https://github.com/search?*type=Code*"
+  ],
+  "options_ui": {
+    "page": "src/options/options.html",
+    "chrome_style": true
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "http://github.com/search?*type=Code*",
+        "https://github.com/search?*type=Code*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}

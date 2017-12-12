@@ -1,0 +1,35 @@
+{
+  "name": "github-search-csv",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Allows you to download a Github search page results to CSV file",
+  "main": "src/inject/inject.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:firstandthird/github-search-csv.git"
+  },
+  "keywords": [
+    "github",
+    "csv",
+    "export"
+  ],
+  "author": "First+Third <code@firstandthird.com> (http://firstandthird.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/firstandthird/github-search-csv/issues"
+  },
+  "homepage": "https://github.com/firstandthird/github-search-csv",
+  "devDependencies": {
+    "eslint-config-firstandthird": "4.2.1",
+    "eslint-plugin-import": "2.8.0"
+  },
+  "eslintConfig": {
+    "extends": "firstandthird",
+    "env": {
+      "browser": true
+    },
+    "globals": {
+      "chrome": true
+    }
+  }
+}
