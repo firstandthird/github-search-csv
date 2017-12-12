@@ -5,17 +5,19 @@
   "version": "1.0.0",
   "icons": {
     "16": "icons/icon16.png",
+    "19": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "author": "First+Third<>",
-  "default_title": "GitHub Search to CSV",
+  "homepage": "https://github.com/firstandthird/github-search-csv",
+  "author": "First+Third <code@firstandthird.com> (http://firstandthird.com/)",
   "default_locale": "en",
+  "offline_enabled": false,
   "permissions": [
     "storage",
     "contentSettings",
-    "http://github.com/search?*type=Code*",
-    "https://github.com/search?*type=Code*"
+    "https://github.com/",
+    "https://api.github.com/"
   ],
   "options_ui": {
     "page": "src/options/options.html",

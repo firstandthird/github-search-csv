@@ -4,4 +4,3 @@ dist
 *.dist*
 .idea/
 .DS_Store
-extension/content.js*

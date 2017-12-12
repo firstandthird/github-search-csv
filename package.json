@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Allows you to download a Github search page results to CSV file",
-  "main": "src/inject/inject.js",
+  "main": "extension/inject/inject.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:firstandthird/github-search-csv.git"

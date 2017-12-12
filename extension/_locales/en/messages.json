@@ -3,6 +3,10 @@
     "message":"Download CSV"
     ,"description":"download button"
   },
+  "downloadingStatus": {
+    "message": "Downloading...",
+    "description": "downloading file"
+  },
   "noResults": {
     "message": "No results to export",
     "description": "no search results alert"
