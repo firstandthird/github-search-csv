@@ -6,7 +6,7 @@ Chrome extension to export GitHub code search results to _.csv_.
 
 - Open Google Chrome and navigate to `chrome://extensions`.
 - Drop `github-search-csv.crx` into window. Click `Add extension` when prompted.
-- [Generate a Github Personal access token.](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) and check `piblic_repos` within `repos` scope.
+- [Generate a Github Personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) and check `piblic_repos` within `repos` scope.
 - Go to extension options available from extension toolbar icon context menu.
 - Paste your token and save changes.
 
