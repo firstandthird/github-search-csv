@@ -63,6 +63,12 @@ async function search(token = '', page = 1, resultsCount = 0, items = []) {
       headers: textMatchHeaders,
       cache: 'default'
     });
+
+    if (response.status === 403) {
+      alert('Rate limit reached. Downloading only available items');
+      return generateCsvFile(items);
+    }
+
     const data = await response.json();
 
     resultsCount += data.items.length;
@@ -87,7 +93,6 @@ async function search(token = '', page = 1, resultsCount = 0, items = []) {
 function generateCsvFile(data) {
   if (data) {
 
-    console.log(data);
     let csvContent = 'Owner,Repo,URL\n';
 
     data.forEach(item => {
@@ -95,7 +100,7 @@ function generateCsvFile(data) {
       csvContent += `${item.repository.owner.login},${encodeURI(item.repository.html_url)},${item.html_url}\n`;
     });
 
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=base64' });
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
     const downloadLink = window.document.createElement('a');
     const fileName = `search_results_${new Date().getTime()}.csv`;
 
