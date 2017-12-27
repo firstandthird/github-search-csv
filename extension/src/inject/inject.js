@@ -86,11 +86,13 @@ async function search(token = '', page = 1, resultsCount = 0, items = []) {
  */
 function generateCsvFile(data) {
   if (data) {
-    let csvContent = 'Owner,Repo,Result (encoded)\n';
+
+    console.log(data);
+    let csvContent = 'Owner,Repo,URL\n';
 
     data.forEach(item => {
       const matched = item.text_matches.map(match => match.fragment);
-      csvContent += `${item.repository.owner.login},${encodeURI(item.repository.html_url)},${escape(matched)}\n`;
+      csvContent += `${item.repository.owner.login},${encodeURI(item.repository.html_url)},${item.html_url}\n`;
     });
 
     const blob = new Blob([csvContent], { type: 'text/csv;charset=base64' });
