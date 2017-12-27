@@ -114,6 +114,18 @@ function generateCsvFile(data) {
 }
 
 /**
+ * Initialize library
+ */
+function init() {
+  const observeTarget = document.querySelector('body')
+  const observer = new MutationObserver(addDownloadButton);
+
+  observer.observe(observeTarget, { childList: true });
+
+  addDownloadButton();
+}
+
+/**
  * Called on app init
  */
-window.onload = addDownloadButton;
+window.onload = init;
