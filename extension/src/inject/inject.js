@@ -86,34 +86,44 @@ async function search(token = '', page = 1, resultsCount = 0, items = []) {
 }
 
 /**
+ * Creates a blob downloadable file from a string
+ *
+ * @param {String} [content=''] File content
+ * @param {string} [filename='download']
+ */
+function downloadCsvFile(content = '', filename = 'download') {
+  const blob = new Blob([content], { type: 'text/csv;charset=utf-8' });
+  const link = window.document.createElement('a');
+  const fileName = `${filename}_${new Date().getTime()}.csv`;
+
+  link.href = window.URL.createObjectURL(blob);
+  link.download = fileName;
+  document.body.appendChild(link);
+
+  downloadButton.disabled = false;
+  downloadButton.querySelector('span').textContent = downloadText;
+
+  link.click();
+  document.body.removeChild(link);
+}
+
+/**
  * Creates a CSV from a Response object
  *
  * @param {Response} { total_count: totalCount, items }
  */
 function generateCsvFile(data) {
   if (data) {
-
-    let csvContent = 'Owner,Repo,URL\n';
+    let csvContent = 'Owner,Repo,URL,Result\n';
 
     data.forEach(item => {
-      const matched = item.text_matches.map(match => match.fragment);
-      csvContent += `${item.repository.owner.login},${encodeURI(item.repository.html_url)},${item.html_url}\n`;
+      const matched = item.text_matches.map(match => match.fragment.replace(/(?:\r\n|\r|\n|,|\s{2,})/g, ' ').toString());
+      csvContent += `${item.repository.owner.login},${encodeURI(item.repository.html_url)},${item.html_url},${matched}\n`;
     });
 
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
-    const downloadLink = window.document.createElement('a');
-    const fileName = `search_results_${new Date().getTime()}.csv`;
-
-    downloadLink.href = window.URL.createObjectURL(blob);
-    downloadLink.download = fileName;
-    document.body.appendChild(downloadLink);
-
-    downloadButton.disabled = false;
-    downloadButton.querySelector('span').textContent = downloadText;
-
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
-  } else {
+    downloadCsvFile(csvContent, 'search_results');
+  }
+  else {
     alert('No results found');
   }
 }
