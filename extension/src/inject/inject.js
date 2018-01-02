@@ -110,15 +110,15 @@ function downloadCsvFile(content = '', filename = 'download') {
 /**
  * Creates a CSV from a Response object
  *
- * @param {Response} { total_count: totalCount, items }
+ * @param {any} data
  */
 function generateCsvFile(data) {
   if (data) {
-    let csvContent = 'Owner,Repo,URL,Result\n';
+    let csvContent = 'Organization,Repository,Repository URL,Result file URL,Results\n';
 
     data.forEach(item => {
       const matched = item.text_matches.map(match => match.fragment.replace(/(?:\r\n|\r|\n|,|\s{2,})/g, ' ').toString());
-      csvContent += `${item.repository.owner.login},${encodeURI(item.repository.html_url)},${item.html_url},${matched}\n`;
+      csvContent += `${item.repository.owner.login},${item.repository.name},${encodeURI(item.repository.html_url)},${encodeURI(item.html_url)},${matched}\n`;
     });
 
     downloadCsvFile(csvContent, 'search_results');
