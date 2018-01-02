@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Search to CSV Options</title>
+  <style>
+    #status {
+      color: darkgreen;
+    }
+    input {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <p>
+    <label for="token">Github Personal token:</label>
+    <input type="text" name="token" id="token" value="" placeholder="Your token here">
+  </p>
+
+  <p>
+    <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/" target="_blank" title="How to get a GitHub Personal token">How to get a token?</a>
+  </p>
+
+
+  <p>
+    <button type="button" id="save">Save</button>
+    <span id="status"></span>
+  </p>
+
+  <script src="options.js"></script>
+
+</body>
+</html>

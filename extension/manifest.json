@@ -1,0 +1,37 @@
+{
+  "name": "GitHub Search to CSV",
+  "description": "Chrome extension to export GitHub code search results to .csv",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "homepage_url": "https://github.com/firstandthird/github-search-csv",
+  "author": "First+Third <code@firstandthird.com> (http://firstandthird.com/)",
+  "default_locale": "en",
+  "offline_enabled": false,
+  "permissions": [
+    "storage",
+    "contentSettings",
+    "https://github.com/",
+    "https://api.github.com/"
+  ],
+  "options_ui": {
+    "page": "src/options/options.html",
+    "chrome_style": true
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "http://github.com/search?*type=Code*",
+        "https://github.com/search?*type=Code*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
