@@ -11,6 +11,10 @@
     "message": "No results to export",
     "description": "no search results alert"
   },
+  "noTokenBtn": {
+    "message": "Set a valid token in config",
+    "description": "no token provided"
+  },
   "saveConfig": {
     "message": "Save",
     "description": "save config button"
