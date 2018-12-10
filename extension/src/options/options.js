@@ -1,14 +1,16 @@
-/* global chrome */
+const browser = window.browser || window.chrome;
 
-const TOKEN_NAME = 'gh_personal_token';
+const TOKEN_NAME = 'gscsv_personal_token';
 
 /**
- * Saves options to chrome.storage
+ * Saves options to browser.storage
  */
-function saveOptions() {
+function saveOptions(event) {
+  event.preventDefault();
+
   const token = document.getElementById('token').value;
 
-  chrome.storage.sync.set({
+  browser.storage.sync.set({
     [TOKEN_NAME]: token
   }, () => {
     const status = document.getElementById('status');
@@ -25,7 +27,7 @@ function saveOptions() {
  * Restores previously saved token
  */
 function restoreOptions() {
-  chrome.storage.sync.get({
+  browser.storage.sync.get({
     [TOKEN_NAME]: ''
   }, item => {
     document.getElementById('token').value = item[TOKEN_NAME];
@@ -33,4 +35,4 @@ function restoreOptions() {
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
-document.getElementById('save').addEventListener('click', saveOptions);
+document.getElementById('options-form').addEventListener('submit', saveOptions);
