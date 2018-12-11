@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "Chrome extension to export GitHub code search results to .csv",
-  "main": "extension/inject/inject.js",
+  "main": "extension/src/inject/inject.js",
+  "scripts": {
+    "lint": "eslint ./extension"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:firstandthird/github-search-csv.git"
@@ -20,16 +23,14 @@
   },
   "homepage": "https://github.com/firstandthird/github-search-csv",
   "devDependencies": {
-    "eslint-config-firstandthird": "4.2.1",
-    "eslint-plugin-import": "2.8.0"
+    "eslint": "^5.10.0",
+    "eslint-config-firstandthird": "^4.3.0",
+    "eslint-plugin-import": "^2.14.0"
   },
   "eslintConfig": {
     "extends": "firstandthird",
     "env": {
       "browser": true
-    },
-    "globals": {
-      "chrome": true
     }
   }
 }

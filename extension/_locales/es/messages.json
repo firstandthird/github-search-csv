@@ -11,6 +11,10 @@
     "message": "No hay resultados para exportar",
     "description": "búsqueda sin resultados"
   },
+  "noTokenBtn": {
+    "message": "Indique un token en las opciones",
+    "description": "indicar token en opciones"
+  },
   "saveConfig": {
     "message": "Guardar",
     "description": "guardar configuración"

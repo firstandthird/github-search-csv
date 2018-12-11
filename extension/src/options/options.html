@@ -6,27 +6,41 @@
     #status {
       color: darkgreen;
     }
-    input {
+    input[type="text"] {
+      padding: 5px 0;
       width: 100%;
     }
   </style>
 </head>
 <body>
 
-  <p>
-    <label for="token">Github Personal token:</label>
-    <input type="text" name="token" id="token" value="" placeholder="Your token here">
-  </p>
+  <form id="options-form" name="options">
 
-  <p>
-    <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/" target="_blank" title="How to get a GitHub Personal token">How to get a token?</a>
-  </p>
+    <p>
+      <label for="token">Github Personal token:</label>
+      <input type="text" name="token" id="token" value="" placeholder="Your token here" size="40" minlength="40" maxlength="40" required>
+    </p>
 
+    <p>
+      Create a token <a href="https://github.com/settings/tokens" target="_blank" title="Generate a GitHub Personal token">here</a>. Give it <strong>repo</strong> permissions (select repo scope).
+    </p>
 
-  <p>
-    <button type="button" id="save">Save</button>
-    <span id="status"></span>
-  </p>
+    <p>
+      <button type="submit" id="save">Save</button>
+      <span id="status"></span>
+    </p>
+
+    <small>
+      <strong>Privacy:</strong> The extension only reads repository names and never writes to your repos. You can <a href="https://github.com/firstandthird/github-search-csv" target="_blank" title="See Github Search CSV">see the code here</a>.
+    </small>
+
+    <hr>
+
+    <p>
+      <small>&copy; 2018 - <a href="https://firstandthird.com/" target="_blank" title="Company website">First+Third</small>
+    </p>
+
+  </form>
 
   <script src="options.js"></script>
 
