@@ -22,17 +22,6 @@ function getToken(callback = (token) => {}) {
 }
 
 /**
- * Opens extension options page
- */
-function openOptionsPage() {
-  if (browser.runtime.openOptionsPage) {
-    browser.runtime.openOptionsPage();
-  } else {
-    window.open(browser.runtime.getURL('src/options/options.html'));
-  }
-}
-
-/**
  * Creates a blob downloadable file from a string
  *
  * @param {String} [content=''] File content
@@ -134,6 +123,13 @@ function onDownload(event) {
 }
 
 /**
+ * Sends an event to open options page
+ */
+function openOptionsPage() {
+  browser.runtime.sendMessage({ action: 'openOptionsPage' });
+}
+
+/**
  * Adds a Download button to GitHub's search results page
  * to export results to CSV
  */
@@ -141,7 +137,9 @@ function addDownloadButton() {
   getToken(token => {
     const buttonsDiv = document.querySelector('#code_search_results');
 
-    if (!buttonsDiv) return;
+    if (!buttonsDiv) {
+      return;
+    }
 
     downloadButton.classList.add('btn', 'btn-sm', 'mt-4');
 

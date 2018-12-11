@@ -22,6 +22,12 @@
     "page": "src/options/options.html",
     "open_in_tab": false
   },
+  "background": {
+    "scripts": [
+      "src/background/background.js"
+    ],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "run_at": "document_end",
